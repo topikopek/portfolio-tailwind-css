@@ -3,87 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
+    <link href="./final.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Orbitron:wght@400..900&display=swap"
       rel="stylesheet"
     />
+    <script>
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches),
+      );
+    </script>
   </head>
-  <body class="font-inter overflow-x-hidden">
+  <body class="dark:bg-dark font-inter overflow-x-hidden">
     <!-- Header Section Start -->
     <header
-      class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10"
+      class="absolute top-0 left-0 z-10 flex w-full items-center bg-transparent"
     >
-      <div class="container px-5 mx-auto xl:px-20">
-        <div class="flex items-center justify-between relative">
+      <div class="container mx-auto px-5 xl:px-20">
+        <div class="relative flex items-center justify-between">
           <div class="">
-            <a href="#home" class="font-bold text-lg text-primary block py-6"
+            <a href="#home" class="text-primary block py-6 text-lg font-bold"
               >Topikopek</a
             >
+          </div>
+          <div class="flex">
+            <span class="text-secondary mr-2 text-sm">Light</span>
+            <input type="checkbox" class="hidden" id="dark-toggle" />
+            <label for="dark-toggle">
+              <div
+                class="bg-secondary bg-toggle flex h-5 w-9 cursor-pointer items-center rounded-full p-0.5 transition-all duration-300"
+              >
+                <div
+                  class="toggle-circle h-4 w-4 rounded-full bg-white transition-all duration-300"
+                ></div>
+              </div>
+            </label>
+            <span class="text-secondary ml-2 text-sm">Dark</span>
           </div>
           <div class="flex items-center">
             <button
               id="hamburger"
               name="hamburger"
               type="button"
-              class="block absolute right-4 cursor-pointer lg:hidden"
+              class="absolute right-4 block cursor-pointer lg:hidden"
             >
               <span
-                class="hamburger-line transition duration-300 ease-in-out origin-top-left"
+                class="hamburger-line origin-top-left transition duration-300 ease-in-out"
               ></span>
               <span
                 class="hamburger-line transition duration-300 ease-in-out"
               ></span>
               <span
-                class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"
+                class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"
               ></span>
             </button>
             <nav
               id="nav-menu"
-              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-62.5 w-full right-4 top-full lg:static lg:bg-transparent lg:block lg:max-w-full lg:rounded-none lg:shadow-none"
+              class="dark:bg-dark dark:shadow-secondary absolute top-full right-4 hidden w-full max-w-62.5 rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none"
             >
-              <ul class="block lg:flex font-semibold">
+              <ul class="block font-semibold lg:flex">
                 <li class="group">
                   <a
                     href="#home"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-dark group-hover:text-primary mx-8 flex py-2 text-base dark:text-white"
                     >Beranda</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#about"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-dark group-hover:text-primary mx-8 flex py-2 text-base dark:text-white"
                     >Tentang Saya</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#project"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-dark group-hover:text-primary mx-8 flex py-2 text-base dark:text-white"
                     >Portfolio</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#skill"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-dark group-hover:text-primary mx-8 flex py-2 text-base dark:text-white"
                     >Keahlian</a
                   >
                 </li>
                 <!-- <li class="group">
                   <a
                     href="#blog"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >Blog</a
                   >
                 </li> -->
                 <li class="group">
                   <a
                     href="#contact"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-dark group-hover:text-primary mx-8 flex py-2 text-base dark:text-white"
                     >Contact</a
                   >
                 </li>
@@ -97,46 +119,52 @@
 
     <!-- Hero Section Start -->
     <section id="home" class="pt-36">
-      <div class="container mx-auto xl:px-20 px-5">
+      <div class="container mx-auto px-5 xl:px-20">
         <div class="flex flex-wrap">
           <div class="w-full self-center md:w-1/2 md:pr-7">
             <h1
-              class="font-semibold text-sm text-primary md:text-xl lg:text-2xl"
+              class="text-primary text-sm font-semibold md:text-xl lg:text-2xl"
             >
               Halo Semua ✋, saya
               <span
-                class="block text-dark text-4xl font-bold md:text-5xl md:mb-2 lg:text-6xl mb-1"
+                class="text-dark mb-1 block text-4xl font-bold md:mb-2 md:text-5xl lg:text-6xl dark:text-white"
                 >Topik Opek</span
               >
             </h1>
             <h2
-              class="font-medium text-lg mb-5 text-secondary md:text-xl lg:text-2xl"
+              class="text-secondary mb-5 text-lg font-medium md:text-xl lg:text-2xl"
             >
-              Mahasiswa & <span class="text-dark">Web Develover</span>
+              Mahasiswa &
+              <span class="text-dark dark:text-white">Web Develover</span>
             </h2>
             <p
-              class="leading-relaxed text-slate-400 font-medium mb-10 md:text-lg lg:text-xl"
+              class="mb-10 leading-relaxed font-medium text-slate-400 md:text-lg lg:text-xl"
             >
-              Membangun website <span class="text-dark font-bold">cepat</span>,
-              <span class="text-dark font-bold">responsif</span>, dan
-              <span class="text-dark font-bold">modern</span> dengan
-              <span class="text-dark font-bold">teknologi terkini.</span>
+              Membangun website
+              <span class="text-dark font-bold dark:text-white">cepat</span>,
+              <span class="text-dark font-bold dark:text-white">responsif</span
+              >, dan
+              <span class="text-dark font-bold dark:text-white">modern</span>
+              dengan
+              <span class="text-dark font-bold dark:text-white"
+                >teknologi terkini.</span
+              >
             </p>
             <a
               href="#"
-              class="py-2 px-5 rounded-full bg-primary text-white font-medium hover:opacity-90 hover:shadow-lg transition duration-300 ease-in-out"
+              class="bg-primary rounded-full px-5 py-2 font-medium text-white transition duration-300 ease-in-out hover:opacity-90 hover:shadow-lg"
               >Hubungi Saya</a
             >
           </div>
           <div class="w-full self-end px-4 md:w-1/2 md:pl-7">
-            <div class="mt-10 relative right-0">
+            <div class="relative right-0 mt-10">
               <img
                 src="../img/topik.png"
                 alt="Topik"
-                class="max-w-full mx-auto lg:w-90 w-90"
+                class="mx-auto w-90 max-w-full lg:w-90"
               />
               <span
-                class="absolute -bottom-10 sm:bottom-0 left-1/2 -translate-x-1/2 -z-10 md:scale-105 lg:scale-125"
+                class="absolute -bottom-10 left-1/2 -z-10 -translate-x-1/2 sm:bottom-0 md:scale-105 lg:scale-125"
               >
                 <svg
                   width="400"
@@ -160,19 +188,21 @@
 
     <!-- About Section Start -->
     <section id="about" class="pt-36 pb-32">
-      <div class="container px-5 mx-auto xl:px-20">
+      <div class="container mx-auto px-5 xl:px-20">
         <div class="flex flex-wrap">
-          <div class="w-full mb-10 md:w-1/2 md:pr-7">
+          <div class="mb-10 w-full md:w-1/2 md:pr-7">
             <h4
-              class="font-bold uppercase text-primary mb-3 text-xl lg:text-2xl"
+              class="text-primary mb-3 text-xl font-bold uppercase lg:text-2xl"
             >
               Tentang Saya
             </h4>
-            <h2 class="font-bold text-dark text-3xl mb-5 lg:text-4xl">
+            <h2
+              class="text-dark mb-5 text-3xl font-bold lg:text-4xl dark:text-white"
+            >
               Mengenal Saya Lebih Dekat
             </h2>
             <p
-              class="font-medium text-base text-secondary text-justify lg:text-lg"
+              class="text-secondary text-justify text-base font-medium lg:text-lg"
             >
               Halo, saya Topik, seorang mahasiswa yang tertarik dengan dunia web
               development. Saya menikmati proses membangun website dari nol,
@@ -180,12 +210,12 @@
               yang baik adalah yang ringan, responsif, dan mudah digunakan.
             </p>
           </div>
-          <div class="w-full md:w-1/2 md:pl-7 flex flex-col justify-center">
-            <h4 class="font-bold text-primary text-2xl mb-3 lg:text-3xl">
+          <div class="flex w-full flex-col justify-center md:w-1/2 md:pl-7">
+            <h4 class="text-primary mb-3 text-2xl font-bold lg:text-3xl">
               Mari Berteman
             </h4>
             <p
-              class="font-medium text-base text-secondary mb-5 text-justify lg:text-lg"
+              class="text-secondary mb-5 text-justify text-base font-medium lg:text-lg"
             >
               Saya terbuka untuk berkenalan, berdiskusi, dan berbagi hal menarik
               seputar web development maupun hal lainnya. Jangan ragu untuk
@@ -195,7 +225,7 @@
               <!-- Instagram -->
               <a
                 href="https://www.instagram.com/topik_opek/?hl=en"
-                class="icon-social text-[#FF0069] border-[#FF0069] lg:hover:text-[#FF0069] lg:hover:border-[#FF0069]"
+                class="icon-social dark:icon-footer border-[#FF0069] text-[#FF0069] lg:hover:border-[#FF0069] lg:hover:text-[#FF0069]"
                 target="_blank"
               >
                 <svg
@@ -214,7 +244,7 @@
               <!-- Facebook -->
               <a
                 href="https://www.facebook.com/topik.opek.9"
-                class="icon-social text-[#0866FF] border-[#0866FF] lg:hover:text-[#0866FF] lg:hover:border-[#0866FF]"
+                class="icon-social border-[#0866FF] text-[#0866FF] lg:hover:border-[#0866FF] lg:hover:text-[#0866FF]"
                 target="_blank"
               >
                 <svg
@@ -233,7 +263,7 @@
               <!-- Tiktok -->
               <a
                 href="https://www.tiktok.com/@opek9"
-                class="icon-social text-[#000000] border-[#000000] lg:hover:text-[#000000] lg:hover:border-[#000000]"
+                class="icon-social border-[#000000] text-[#000000] lg:hover:border-[#000000] lg:hover:text-[#000000] dark:border-white dark:text-white"
                 target="_blank"
               >
                 <svg
@@ -252,7 +282,7 @@
               <!-- Github -->
               <a
                 href="https://github.com/topikopek"
-                class="icon-social text-[#181717] border-[#181717] lg:hover:text-[#181717] lg:hover:border-[#181717]"
+                class="icon-social border-[#181717] text-[#181717] lg:hover:border-[#181717] lg:hover:text-[#181717] dark:border-white dark:text-white"
                 target="_blank"
               >
                 <svg
@@ -271,7 +301,7 @@
               <!-- Linkeldn -->
               <a
                 href="https://www.linkedin.com/in/topik-opek-55b062313/"
-                class="icon-social text-[#0A66C2] border-[#0A66C2] lg:hover:text-[#0A66C2] lg:hover:border-[#0A66C2]"
+                class="icon-social border-[#0A66C2] text-[#0A66C2] lg:hover:border-[#0A66C2] lg:hover:text-[#0A66C2]"
                 target="_blank"
               >
                 <svg
@@ -294,15 +324,17 @@
     <!-- About Section End -->
 
     <!-- Portfolio Section Start -->
-    <section id="project" class="pt-36 pb-16 bg-slate-100">
-      <div class="container px-5 mx-auto xl:px-20">
+    <section id="project" class="bg-slate-100 pt-36 pb-16 dark:bg-slate-800">
+      <div class="container mx-auto px-5 xl:px-20">
         <div class="w-full">
           <div class="mx-auto text-center">
-            <h4 class="font-semibold text-xl text-primary mb-3 uppercase">
+            <h4 class="text-primary mb-3 text-xl font-semibold uppercase">
               Portfolio
             </h4>
-            <h2 class="font-bold text-3xl text-dark mb-5">Project Terbaru</h2>
-            <p class="font-medium text-base text-secondary">
+            <h2 class="text-dark mb-5 text-3xl font-bold dark:text-white">
+              Project Terbaru
+            </h2>
+            <p class="text-secondary text-base font-medium">
               Project ini saya kembangkan di bidang web menggunakan teknologi
               modern, dengan fokus pada tampilan yang responsif dan pengalaman
               pengguna.
@@ -310,25 +342,25 @@
           </div>
         </div>
         <div
-          class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 mx-auto"
+          class="mx-auto flex w-full flex-wrap justify-center px-4 xl:w-10/12"
         >
           <div
-            class="mb-12 p-4 w-full md:w-1/2 hover:shadow-lg rounded-md transition-all group"
+            class="group mb-12 w-full rounded-md p-4 transition-all hover:shadow-lg md:w-1/2 dark:hover:shadow-slate-300"
           >
-            <div class="rounded-md shadow-md overflow-hidden">
+            <div class="overflow-hidden rounded-md shadow-md">
               <img src="../img/1.png" alt="Landing Page Portfolio" />
             </div>
             <a
               href=""
-              class="font-semibold text-lg inline-block my-3 hover:text-primary transition-all text-dark underline-project"
+              class="hover:text-primary text-dark underline-project my-3 inline-block text-lg font-semibold transition-all dark:text-white"
               >Landing Page Portfolio</a
             >
-            <p class="font-medium text-base text-secondary text-justify">
+            <p class="text-secondary text-justify text-base font-medium">
               Portfolio landing page ini menampilkan profil dan keahlian, yang
               saya kerjakan dengan desain yang responsif sebagai representasi
               kemampuan dan pengalaman saya di bidang pengembangan web.
             </p>
-            <p class="my-3 font-bold text-sm text-primary">
+            <p class="text-primary my-3 text-sm font-bold">
               Teknologi Yang Digunakan :
             </p>
             <div class="flex">
@@ -366,22 +398,22 @@
             </div>
           </div>
           <div
-            class="mb-12 p-4 w-full md:w-1/2 hover:shadow-lg rounded-md transition-all group"
+            class="group mb-12 w-full rounded-md p-4 transition-all hover:shadow-lg md:w-1/2 dark:hover:shadow-slate-300"
           >
-            <div class="rounded-md shadow-md overflow-hidden">
+            <div class="overflow-hidden rounded-md shadow-md">
               <img src="../img/2.png" alt="Permainan Tebak Angka" />
             </div>
             <a
               href=""
-              class="font-semibold text-lg inline-block my-3 hover:text-primary transition-all text-dark underline-project"
+              class="hover:text-primary text-dark underline-project my-3 inline-block text-lg font-semibold transition-all dark:text-white"
               >Permainan Tebak Angka</a
             >
-            <p class="font-medium text-base text-secondary text-justify">
+            <p class="text-secondary text-justify text-base font-medium">
               Website permainan tebak angka ini merupakan game interaktif
               berbasis web yang menantang pengguna untuk menebak angka yang
               dipilih secara acak oleh sistem dalam jumlah percobaan tertentu.
             </p>
-            <p class="my-3 font-bold text-sm text-primary">
+            <p class="text-primary my-3 text-sm font-bold">
               Teknologi Yang Digunakan :
             </p>
             <div class="flex">
@@ -435,22 +467,22 @@
             </div>
           </div>
           <div
-            class="mb-12 p-4 w-full md:w-1/2 hover:shadow-lg rounded-md transition-all group"
+            class="group mb-12 w-full rounded-md p-4 transition-all hover:shadow-lg md:w-1/2 dark:hover:shadow-slate-300"
           >
-            <div class="rounded-md shadow-md overflow-hidden">
+            <div class="overflow-hidden rounded-md shadow-md">
               <img src="../img/3.png" alt="Web CRUD Data Mahasiswa" />
             </div>
             <a
               href=""
-              class="font-semibold text-lg inline-block my-3 hover:text-primary transition-all text-dark underline-project"
+              class="hover:text-primary text-dark underline-project my-3 inline-block text-lg font-semibold transition-all dark:text-white"
               >Web CRUD Data Mahasiswa</a
             >
-            <p class="font-medium text-base text-secondary text-justify">
+            <p class="text-secondary text-justify text-base font-medium">
               Website CRUD Data Mahasiswa ini merupakan aplikasi berbasis web
               yang digunakan untuk mengelola data mahasiswa, meliputi fitur
               tambah, tampil, ubah, dan hapus data secara terstruktur.
             </p>
-            <p class="my-3 font-bold text-sm text-primary">
+            <p class="text-primary my-3 text-sm font-bold">
               Teknologi Yang Digunakan :
             </p>
             <div class="flex">
@@ -525,14 +557,14 @@
     <!-- Portfolia Section End -->
 
     <!-- Keahlian Section Start -->
-    <section id="skill" class="pt-36 pb-32 bg-dark">
+    <section id="skill" class="bg-dark pt-36 pb-32 dark:bg-slate-300">
       <div class="container mx-auto px-5 xl:px-20">
-        <div class="w-full mb-8">
+        <div class="mb-8 w-full">
           <div class="mx-auto text-center">
-            <h4 class="font-semibold text-xl text-primary mb-5 uppercase">
+            <h4 class="text-primary mb-5 text-xl font-semibold uppercase">
               Keahlian
             </h4>
-            <p class="font-medium text-base text-secondary">
+            <p class="text-secondary text-base font-medium">
               Saya memiliki keahlian dalam pengembangan web, khususnya dalam
               membangun antarmuka yang responsif dan mudah digunakan. Ke
               depannya, saya masih terus belajar dan mengembangkan kemampuan
@@ -540,11 +572,11 @@
             </p>
           </div>
         </div>
-        <div class="w-full flex flex-wrap justify-center">
+        <div class="flex w-full flex-wrap justify-center">
           <!-- HTML -->
-          <div class="flex flex-wrap justify-center items-center mb-8 mr-5">
+          <div class="mr-5 mb-8 flex flex-wrap items-center justify-center">
             <div
-              class="bg-slate-100 flex flex-col items-center justify-around rounded hover:scale-110 overflow-hidden w-25 h-35 transition"
+              class="dark:bg-dark flex h-35 w-25 flex-col items-center justify-around overflow-hidden rounded bg-slate-100 transition hover:scale-110"
             >
               <span class="icon-skill text-[#e34f26]">
                 <svg
@@ -560,14 +592,18 @@
                   />
                 </svg>
               </span>
-              <h2 class="text-center font-bold text-dark text-lg py-1">HTML</h2>
+              <h2
+                class="text-dark py-1 text-center text-lg font-bold dark:text-white"
+              >
+                HTML
+              </h2>
             </div>
           </div>
 
           <!-- CSS -->
-          <div class="flex flex-wrap justify-center items-center mb-8 mr-5">
+          <div class="mr-5 mb-8 flex flex-wrap items-center justify-center">
             <div
-              class="bg-slate-100 flex flex-col items-center justify-around rounded hover:scale-110 overflow-hidden w-25 h-35 transition"
+              class="dark:bg-dark flex h-35 w-25 flex-col items-center justify-around overflow-hidden rounded bg-slate-100 transition hover:scale-110"
             >
               <span class="icon-skill text-[#663399]">
                 <svg
@@ -583,14 +619,18 @@
                   />
                 </svg>
               </span>
-              <h2 class="text-center font-bold text-dark text-lg py-1">CSS</h2>
+              <h2
+                class="text-dark py-1 text-center text-lg font-bold dark:text-white"
+              >
+                CSS
+              </h2>
             </div>
           </div>
 
           <!-- Javascript -->
-          <div class="flex flex-wrap justify-center items-center mb-8 mr-5">
+          <div class="mr-5 mb-8 flex flex-wrap items-center justify-center">
             <div
-              class="bg-slate-100 flex flex-col items-center justify-around rounded hover:scale-110 overflow-hidden w-25 h-35 transition"
+              class="dark:bg-dark flex h-35 w-25 flex-col items-center justify-around overflow-hidden rounded bg-slate-100 transition hover:scale-110"
             >
               <span class="icon-skill text-[#F7DF1E]">
                 <svg
@@ -606,16 +646,18 @@
                   />
                 </svg>
               </span>
-              <h2 class="text-center font-bold text-dark text-lg py-1">
+              <h2
+                class="text-dark py-1 text-center text-lg font-bold dark:text-white"
+              >
                 Javascript
               </h2>
             </div>
           </div>
 
           <!-- Bootstrap -->
-          <div class="flex flex-wrap justify-center items-center mb-8 mr-5">
+          <div class="mr-5 mb-8 flex flex-wrap items-center justify-center">
             <div
-              class="bg-slate-100 flex flex-col items-center justify-around rounded hover:scale-110 overflow-hidden w-25 h-35 transition"
+              class="dark:bg-dark flex h-35 w-25 flex-col items-center justify-around overflow-hidden rounded bg-slate-100 transition hover:scale-110"
             >
               <span class="icon-skill text-[#7952B3]">
                 <svg
@@ -631,16 +673,18 @@
                   />
                 </svg>
               </span>
-              <h2 class="text-center font-bold text-dark text-lg py-1">
+              <h2
+                class="text-dark py-1 text-center text-lg font-bold dark:text-white"
+              >
                 Bootstrap
               </h2>
             </div>
           </div>
 
           <!-- Tailwind -->
-          <div class="flex flex-wrap justify-center items-center mb-8 mr-5">
+          <div class="mr-5 mb-8 flex flex-wrap items-center justify-center">
             <div
-              class="bg-slate-100 flex flex-col items-center justify-around rounded hover:scale-110 overflow-hidden w-25 h-35 transition"
+              class="dark:bg-dark flex h-35 w-25 flex-col items-center justify-around overflow-hidden rounded bg-slate-100 transition hover:scale-110"
             >
               <span class="icon-skill text-[#06B6D4]">
                 <svg
@@ -656,16 +700,18 @@
                   />
                 </svg>
               </span>
-              <h2 class="text-center font-bold text-dark text-lg py-1">
+              <h2
+                class="text-dark py-1 text-center text-lg font-bold dark:text-white"
+              >
                 Tailwind
               </h2>
             </div>
           </div>
 
           <!-- PHP -->
-          <div class="flex flex-wrap justify-center items-center mb-8 mr-5">
+          <div class="mr-5 mb-8 flex flex-wrap items-center justify-center">
             <div
-              class="bg-slate-100 flex flex-col items-center justify-around rounded hover:scale-110 overflow-hidden w-25 h-35 transition"
+              class="dark:bg-dark flex h-35 w-25 flex-col items-center justify-around overflow-hidden rounded bg-slate-100 transition hover:scale-110"
             >
               <span class="icon-skill text-[#777BB4]">
                 <svg
@@ -681,14 +727,18 @@
                   />
                 </svg>
               </span>
-              <h2 class="text-center font-bold text-dark text-lg py-1">PHP</h2>
+              <h2
+                class="text-dark py-1 text-center text-lg font-bold dark:text-white"
+              >
+                PHP
+              </h2>
             </div>
           </div>
 
           <!-- MySQL -->
-          <div class="flex flex-wrap justify-center items-center mb-8 mr-5">
+          <div class="mr-5 mb-8 flex flex-wrap items-center justify-center">
             <div
-              class="bg-slate-100 flex flex-col items-center justify-around rounded hover:scale-110 overflow-hidden w-25 h-35 transition"
+              class="dark:bg-dark flex h-35 w-25 flex-col items-center justify-around overflow-hidden rounded bg-slate-100 transition hover:scale-110"
             >
               <span class="icon-skill text-[#4479A1]">
                 <svg
@@ -704,7 +754,9 @@
                   />
                 </svg>
               </span>
-              <h2 class="text-center font-bold text-dark text-lg py-1">
+              <h2
+                class="text-dark py-1 text-center text-lg font-bold dark:text-white"
+              >
                 MySQL
               </h2>
             </div>
@@ -716,55 +768,57 @@
 
     <!-- Contact Section Start -->
     <section id="contact" class="pt-36 pb-32">
-      <div class="container px-5 xl:px-20 mx-auto">
+      <div class="container mx-auto px-5 xl:px-20">
         <div class="w-full">
-          <div class="mx-auto text-center mb-16">
-            <h4 class="font-semibold text-xl text-primary mb-3 uppercase">
+          <div class="mx-auto mb-16 text-center">
+            <h4 class="text-primary mb-3 text-xl font-semibold uppercase">
               Contact
             </h4>
-            <h2 class="font-bold text-3xl mb-5">Hubungi Saya</h2>
-            <p class="font-medium text-base text-secondary">
+            <h2 class="mb-5 text-3xl font-bold dark:text-white">
+              Hubungi Saya
+            </h2>
+            <p class="text-secondary text-base font-medium">
               Jika Anda tertarik untuk bekerja sama, berdiskusi, atau memiliki
               pertanyaan, silakan hubungi saya melalui kontak yang tersedia.
               Saya akan dengan senang hati merespons.
             </p>
           </div>
           <form>
-            <div class="w-full lg:w-2/3 mx-auto">
-              <div class="w-full px-5 mb-8 max-w-xl mx-auto">
-                <label for="name" class="text-base font-bold text-primary"
+            <div class="mx-auto w-full lg:w-2/3">
+              <div class="mx-auto mb-8 w-full max-w-xl px-5">
+                <label for="name" class="text-primary text-base font-bold"
                   >Nama</label
                 >
                 <input
                   type="text"
                   id="name"
-                  class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+                  class="text-dark focus:ring-primary focus:border-primary w-full rounded-md bg-slate-200 p-3 focus:ring-1 focus:outline-none"
                 />
               </div>
-              <div class="w-full px-5 mb-8 max-w-xl mx-auto">
-                <label for="email" class="text-base font-bold text-primary"
+              <div class="mx-auto mb-8 w-full max-w-xl px-5">
+                <label for="email" class="text-primary text-base font-bold"
                   >Email</label
                 >
                 <input
                   type="email"
                   id="email"
-                  class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+                  class="text-dark focus:ring-primary focus:border-primary w-full rounded-md bg-slate-200 p-3 focus:ring-1 focus:outline-none"
                 />
               </div>
-              <div class="w-full px-5 mb-8 max-w-xl mx-auto">
-                <label for="textarea" class="text-base font-bold text-primary"
+              <div class="mx-auto mb-8 w-full max-w-xl px-5">
+                <label for="textarea" class="text-primary text-base font-bold"
                   >Pesan</label
                 >
                 <textarea
                   type="text"
                   id="textarea"
-                  class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"
+                  class="text-dark focus:ring-primary focus:border-primary h-32 w-full rounded-md bg-slate-200 p-3 focus:ring-1 focus:outline-none"
                 >
                 </textarea>
               </div>
-              <div class="w-full px-5 max-w-xl mx-auto">
+              <div class="mx-auto w-full max-w-xl px-5">
                 <button
-                  class="bg-primary text-white font-semibold px-8 py-1.5 rounded-full w-full hover:opacity-80 hover:shadow-lg transition-all"
+                  class="bg-primary w-full rounded-full px-8 py-1.5 font-semibold text-white transition-all hover:opacity-80 hover:shadow-lg"
                 >
                   Kirim
                 </button>
@@ -777,11 +831,11 @@
     <!-- Contact Section End -->
 
     <!-- Footer Section Start -->
-    <footer class="bg-dark pt-24 pb-12">
-      <div class="container px-5 xl:px-20 mx-auto">
+    <footer class="bg-dark pt-24 pb-12 dark:bg-slate-700">
+      <div class="container mx-auto px-5 xl:px-20">
         <div class="flex flex-wrap justify-around">
-          <div class="w-full px-5 mb-12 text-slate-300 font-medium md:w-1/3">
-            <h3 class="font-semibold text-xl text-primary mb-3">
+          <div class="mb-12 w-full px-5 font-medium text-slate-300 md:w-1/3">
+            <h3 class="text-primary mb-3 text-xl font-semibold">
               Terima Kasih Telah Berkunjung
             </h3>
             <p class="text-justify">
@@ -789,57 +843,57 @@
               karya saya.
             </p>
           </div>
-          <div class="w-full px-5 mb-12 md:w-auto">
-            <h3 class="font-semibold text-xl text-primary mb-3">
+          <div class="mb-12 w-full px-5 md:w-auto">
+            <h3 class="text-primary mb-3 text-xl font-semibold">
               Kategori Tautan
             </h3>
-            <ul class="text-slate-300 font-medium">
+            <ul class="font-medium text-slate-300">
               <li>
                 <a
                   href="#home"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="hover:text-primary mb-3 inline-block text-base"
                   >Beranda</a
                 >
               </li>
               <li>
                 <a
                   href="#about"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="hover:text-primary mb-3 inline-block text-base"
                   >Tentang Saya</a
                 >
               </li>
               <li>
                 <a
                   href="#project"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="hover:text-primary mb-3 inline-block text-base"
                   >Portfolio</a
                 >
               </li>
               <li>
                 <a
                   href="#skill"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="hover:text-primary mb-3 inline-block text-base"
                   >Keahlian</a
                 >
               </li>
               <li>
                 <a
                   href="#contact"
-                  class="inline-block text-base hover:text-primary mb-3"
+                  class="hover:text-primary mb-3 inline-block text-base"
                   >Contact</a
                 >
               </li>
             </ul>
           </div>
-          <div class="w-full px-5 mb-12 text-slate-300 font-medium md:w-auto">
-            <h2 class="font-bold text-xl text-primary mb-3">Topik Opek</h2>
+          <div class="mb-12 w-full px-5 font-medium text-slate-300 md:w-auto">
+            <h2 class="text-primary mb-3 text-xl font-bold">Topik Opek</h2>
             <p>topikcool4@gmail.com</p>
             <p>Jl. Mulawarman Rt. 05</p>
             <p>Muara Kaman Ilir</p>
           </div>
         </div>
-        <div class="w-full pt-10 border-t border-slate-700">
-          <div class="flex items-center justify-center mb-5">
+        <div class="w-full border-t border-slate-700 pt-10">
+          <div class="mb-5 flex items-center justify-center">
             <!-- Instagram -->
             <a
               href="https://www.instagram.com/topik_opek/?hl=en"
@@ -934,18 +988,18 @@
               </svg>
             </a>
           </div>
-          <p class="font-medium text-xs text-secondary text-center">
+          <p class="text-secondary text-center text-xs font-medium">
             Dibuat oleh
             <a
               href="https://instagram.com/topik_opek"
               target="_blank"
-              class="font-bold text-primary"
+              class="text-primary font-bold"
               >Topik Opek</a
             >, menggunakan
             <a
               href="https:/tailwindcss.com"
               target="_blank"
-              class="font-bold text-primary"
+              class="text-primary font-bold"
               >Tailwind CSS</a
             >.
           </p>
@@ -953,6 +1007,19 @@
       </div>
     </footer>
     <!-- Footer Section End -->
+
+    <!-- To Top Start -->
+    <a
+      href="#home"
+      class="bg-primary fixed right-5 bottom-5 z-999 block h-14 w-14 items-center justify-center rounded-full p-4 hover:animate-pulse"
+      id="to-top"
+    >
+      <span
+        class="mx-auto mt-2 block h-5 w-5 rotate-45 border-t-2 border-l-2 border-white"
+      ></span>
+    </a>
+    <!-- To Top End -->
+
     <script src="../script/script.js"></script>
   </body>
 </html>
